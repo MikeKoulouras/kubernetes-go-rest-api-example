@@ -21,6 +21,9 @@ type YoutubeStats struct {
 func getChannelStats(k string, channelID string) httprouter.Handle {
 	return func(w http.ResponseWriter, r *http.Request, ps httprouter.Params) {
 
+		w.Write([]byte("\nHello Youtube\n"))
+		return
+
 		ctx := context.Background()
 		yts, err := youtube.NewService(ctx, option.WithAPIKey(k))
 		if err != nil {
